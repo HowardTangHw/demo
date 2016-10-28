@@ -7,8 +7,8 @@
 	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
 	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" />
-	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<style>
 		body,
 		html {
@@ -158,8 +158,8 @@
 		}
 		
 		.link {
-			margin-top:2%;
-			margin-right:17px;
+			margin-top: 2%;
+			margin-right: 17px;
 			float: right;
 		}
 		
@@ -223,6 +223,32 @@
 			color: #fff;
 		}
 		/*footer结束*/
+		/*导航栏*/
+			#gotop {
+			position: fixed;
+			right: 10px;
+			/*bottom: -85px;*/
+			bottom: 10px;
+			transition: bottom ease .3s;
+			z-index: 3;
+			display:none;}
+			/*btn样式,块元素,背景图片用按钮的图片,圆边,将文字隐藏*/
+			#gotop .t_btn {
+			width: 36px;
+			height: 36px;
+			display: block;
+			/*margin-top: 2px;*/
+			background: url("http://www.z4a.net/images/2016/10/28/08767e66966285c676ac2f1f40ac3864.png") 0 0 no-repeat;
+			text-decoration: none;
+			text-indent: -999em;
+			border-radius: 5px;}
+			#gotop .t_gotop {
+			background-position: -2px 0;}
+			#gotop .t_btn:hover {
+			background-color: #E0E0E0;}
+					/*导航栏结束*/
+
+
 	</style>
 </head>
 
@@ -396,8 +422,33 @@
 							</div>
 						</footer>
 						<!--footer部分结束-->
+						<!--右侧gotop-->
+						<div id="gotop">
+							<a class="t_btn t_gotop" href="javascript:;" onclick="window.scrollTo('0','0')" original-title="返回顶部">返回顶部</a>
+						</div>
 
-
+<script type="text/javascript">
+$(document).ready(function(){
+$("#gotop").hide();
+$(function () {
+$(window).scroll(function(){
+if ($(window).scrollTop()>100){
+$("#gotop").fadeIn(500);
+}
+else
+{
+$("#gotop").fadeOut(500);
+}
+});
+$("#gotop").click(function(){
+$('body,html').animate({scrollTop:0},100);
+return false;
+});
+});
+});
+</script>
 </body>
-
 </html>
+
+
+
